@@ -13,6 +13,9 @@
 \RequirePackage{ae,mathpple}    % ae as a default font pkg works with Sweave
 \RequirePackage[T1]{fontenc}
 
+\newcommand{\proglang}[1]{\textsf{#1}}
+\newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
+
 \title{RcppClassic: Deprecated Rcpp API}
 \author{by Dirk Eddelbuettel and Romain Fran\c{c}ois}
 
