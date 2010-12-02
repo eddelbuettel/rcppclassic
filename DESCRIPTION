@@ -1,0 +1,13 @@
+Package: RcppClassic
+Title: Deprecated Rcpp API
+Version: 0.8.8.1
+Date: $Date: 2010-11-04 09:53:59 +0100 (Jeu, 04 nov 2010) $
+Author: Dirk Eddelbuettel and Romain Francois. 
+    Fully based on code written during 2005 and 2006 by Dominick Samperi 
+Maintainer: Dirk Eddelbuettel and Romain Francois <RomainAndDirk@r-enthusiasts.com>
+Description: Deprecated Rcpp API.
+Depends: R (>= 2.12.0), Rcpp (>= 0.8.9.2), methods
+LinkingTo: Rcpp
+License: GPL (>= 2)
+MailingList: Please send questions and comments regarding Rcpp to rcpp-devel@lists.r-forge.r-project.org
+
