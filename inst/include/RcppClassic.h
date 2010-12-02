@@ -24,8 +24,6 @@
 #ifndef RcppClassic_hpp
 #define RcppClassic_hpp
 
-#define RCPP_NO_CLASSIC_API
-
 #include <RcppCommon.h>
 #include <classic/classic.h>
 #include <Rcpp.h>
