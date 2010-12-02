@@ -32,7 +32,8 @@ a package to use both the current and classic Rcpp APIs.
 \section{Using RcppClassic}
 
 A few changes are needed in packages that want to use the classic Rcpp API 
-that is contained in RcppClassic. 
+that is contained in RcppClassic. RcppClassic contains a sample package called
+RcppClassicExample that can be used as a template.
 
 \subsection{The DESCRIPTION file}
 
@@ -86,7 +87,8 @@ so that it uses the classic API from RcppClassic since it has been removed
 from Rcpp. 
 
 We do, however, recommend that package authors stop using the classic API, which 
-is largely superseded by the current Rcpp API. 
+is largely superseded by the current Rcpp API, in terms of performance, design, 
+maintainance and ease of use. 
 
 % TODO: add some more content, or just point to the Rcpp vignettes ?
 
