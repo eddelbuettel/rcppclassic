@@ -1,6 +1,6 @@
 Package: RcppClassic
 Title: Deprecated Rcpp API
-Version: 0.8.8.1
+Version: 0.0.0
 Date: $Date: 2010-11-04 09:53:59 +0100 (Jeu, 04 nov 2010) $
 Author: Dirk Eddelbuettel and Romain Francois. 
     Fully based on code written during 2005 and 2006 by Dominick Samperi 
