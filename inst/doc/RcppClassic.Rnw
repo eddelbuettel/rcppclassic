@@ -1,0 +1,98 @@
+\documentclass[a4paper]{article}
+%\VignetteIndexEntry{RcppClassic}
+%\VignettePackage{RcppClassic}
+
+\usepackage{a4wide,graphicx,color}
+\usepackage[authoryear,round,longnamesfirst]{natbib}
+\bibliographystyle{abbrvnat}
+
+\usepackage{booktabs}           % fancier \hrule
+\usepackage{float}		% float 'here' -- but not with multicol?
+\restylefloat{figure}
+
+\RequirePackage{ae,mathpple}    % ae as a default font pkg works with Sweave
+\RequirePackage[T1]{fontenc}
+
+\title{RcppClassic: Deprecated Rcpp API}
+\author{by Dirk Eddelbuettel and Romain Fran\c{c}ois}
+
+\begin{document}
+
+\maketitle
+
+This document presents the \texttt{RcppClassic} package. This package 
+has been factored out of \texttt{Rcpp} and only contains code that is 
+considered deprecated. 
+
+This package is released for the sole purpose of allowing package authors
+that are still using the classic \texttt{Rcpp} API to keep 
+their package buildable. This document explains the changes needed in
+a package to use both the current and classic Rcpp APIs. 
+
+\section{Using RcppClassic}
+
+A few changes are needed in packages that want to use the classic Rcpp API 
+that is contained in RcppClassic. 
+
+\subsection{The DESCRIPTION file}
+
+The client package must declare that it depends on both Rcpp and RcppClassic, 
+in the Depends field and the LinkingTo field, so it must contain this: 
+
+\begin{verbatim}
+Depends: RcppClassic, Rcpp
+LinkingTo: RcppClassic, Rcpp
+\end{verbatim}
+
+\subsection{Makevars}
+
+The Makevars file must be updated so that user libraries for both Rcpp
+and RcppClassic are used: 
+
+\begin{verbatim}
+PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` \
+           `$(R_HOME)/bin/Rscript -e "RcppClassic:::LdFlags()"` 
+
+\end{verbatim}
+
+\subsection{Makevars.win}
+
+The Makevars.win must also be updated for the same reason: 
+
+\begin{verbatim}
+PKG_LIBS = $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "Rcpp:::LdFlags()")
+PKG_LIBS += $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "RcppClassic:::LdFlags()")
+\end{verbatim}
+
+\subsection{include RcppClassic.h instead of Rcpp.h}
+
+Finally, all instances of this line : 
+
+\begin{verbatim}
+#include <Rcpp.h>
+\end{verbatim}
+
+need to be replaced by: 
+
+\begin{verbatim}
+#include <RcppClassic.h>
+\end{verbatim}
+
+
+\section{Not Using RcppClassic}
+
+The previous section discusses the set of changes required to update a package
+so that it uses the classic API from RcppClassic since it has been removed 
+from Rcpp. 
+
+We do, however, recommend that package authors stop using the classic API, which 
+is largely superseded by the current Rcpp API. 
+
+% TODO: add some more content, or just point to the Rcpp vignettes ?
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
