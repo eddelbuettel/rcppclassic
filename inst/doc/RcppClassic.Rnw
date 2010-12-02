@@ -21,7 +21,8 @@
 \maketitle
 
 This document presents the \texttt{RcppClassic} package. This package 
-has been factored out of \texttt{Rcpp} and only contains code that is 
+has been factored out of \texttt{Rcpp} \citep{CRAN:Rcpp} 
+and only contains code that is 
 considered deprecated. 
 
 This package is released for the sole purpose of allowing package authors
@@ -91,6 +92,8 @@ is largely superseded by the current Rcpp API, in terms of performance, design,
 maintainance and ease of use. 
 
 % TODO: add some more content, or just point to the Rcpp vignettes ?
+
+\bibliography{\Sexpr{Rcpp:::bib()}}
 
 \end{document}
 

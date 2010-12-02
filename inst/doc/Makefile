@@ -18,6 +18,6 @@ clean:
 
 RcppClassic.pdf: RcppClassic.Rnw
 	R CMD Sweave RcppClassic.Rnw
-	Rscript --vanilla -e "tools::texi2dvi( 'RcppClassic.tex', pdf = TRUE, clean = TRUE )"
+	Rscript --vanilla -e "tools::texi2dvi( 'RcppClassic.tex', pdf = TRUE, clean = FALSE )"
 	rm -fr RcppClassic.tex
 
