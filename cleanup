@@ -1,0 +1,15 @@
+
+rm -f confdefs.h config.log config.status \
+	src/*.o src/*.so src/*.a src/*.d src/*.dll src/*.rc \
+	RcppSrc/*.o RcppSrc/*.a \
+	inst/lib/libRcppClassic.so inst/lib/*.h inst/lib/libRcppClassic.a \
+	inst/doc/*.cpp inst/doc/*.hpp \
+	inst/doc/*.out \
+	inst/doc/.build.timestamp \
+	inst/doc/*.Rd inst/doc/*.aux inst/doc/*.log inst/doc/*.tex \
+	inst/doc/latex/*.aux inst/doc/latex/*.log \
+	src/Makedeps libRcppClassic.a \
+	build/Rcpp.pdf
+
+find . -name \*~ -exec rm {} \;
+find . -name \*.flc -exec rm {} \;
