@@ -18,6 +18,13 @@ clean:
 
 RcppClassic.pdf: RcppClassic.Rnw
 	R CMD Sweave RcppClassic.Rnw
+ifneq (,$(findstring edd,$(whoami)))
+	pdflatex RcppClassic.tex
+	bibtex RcppClassic
+	pdflatex RcppClassic.tex
+	pdflatex RcppClassic.tex
+else
 	Rscript --vanilla -e "tools::texi2dvi( 'RcppClassic.tex', pdf = TRUE, clean = FALSE )"
+endif
 	rm -fr RcppClassic.tex
 

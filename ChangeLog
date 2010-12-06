@@ -1,0 +1,8 @@
+2010-12-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/doc/RcppClassic.Rnw: Aligned a little with Rcpp vignettes
+
+2010-12-02  Romain Francois <romain@r-enthusiasts.com>
+
+	* Create new package for deprecated 'classic Rcpp' API by carving it
+	out of the current Rcpp package
