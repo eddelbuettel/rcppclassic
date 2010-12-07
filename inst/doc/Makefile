@@ -13,8 +13,8 @@ all: clean index.html RcppClassic.pdf
 pdfclean:
 	rm -f RcppClassic.pdf
 clean:
-	rm -f index.html
-	rm -f *.tex *.bbl *.blg *.aux *.out *.log
+	@rm -f index.html
+	@rm -f *.tex *.bbl *.blg *.aux *.out *.log
 
 RcppClassic.pdf: RcppClassic.Rnw
 	R CMD Sweave RcppClassic.Rnw
