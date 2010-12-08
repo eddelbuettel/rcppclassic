@@ -8,13 +8,19 @@
 ## on Ubuntu so for Dirk will insist on pdflatex and this variable helps
 whoami=$(shell whoami)
 
-all: clean index.html RcppClassic.pdf
+all: clean RcppClassic-unitTests.pdf RcppClassic.pdf 
 
 pdfclean:
-	rm -f RcppClassic.pdf
+	rm -f RcppClassic.pdf RcppClassic-unitTests.pdf
 clean:
-	@rm -f index.html
 	@rm -f *.tex *.bbl *.blg *.aux *.out *.log
+
+RcppClassic-unitTests.pdf:
+	rm -fr unitTests-results/*
+	Rscript --vanilla unitTests/RcppClassic-unitTests.R
+	R CMD Sweave RcppClassic-unitTests.Rnw
+	Rscript --vanilla -e "tools::texi2dvi( 'RcppClassic-unitTests.tex', pdf = TRUE, clean = TRUE )"
+	rm -fr RcppClassic-unitTests.tex
 
 RcppClassic.pdf: RcppClassic.Rnw
 	R CMD Sweave RcppClassic.Rnw
