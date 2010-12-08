@@ -110,7 +110,6 @@ We do, however, recommend that package authors stop using the classic API, which
 is largely superseded by the current Rcpp API, in terms of performance, design,
 maintainance and ease of use.
 
-% TODO: add some more content, or just point to the Rcpp vignettes ?
 
 \bibliographystyle{plainnat}
 \bibliography{\Sexpr{Rcpp:::bib()}}
