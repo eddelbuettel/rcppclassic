@@ -153,7 +153,7 @@
 
         signatures <- lapply(f, "[[", 1L)
         bodies <- lapply(f, "[[", 2L)
-        fun <- cxxfunction( signatures, bodies, plugin = "Rcpp")
+        fun <- cxxfunction( signatures, bodies, plugin = "RcppClassic")
         getDynLib( fun ) # just forcing loading the dll now
         assign( tests, fun, globalenv() )
     }
