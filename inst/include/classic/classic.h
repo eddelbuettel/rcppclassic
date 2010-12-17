@@ -39,4 +39,6 @@
 #include <classic/RcppVector.h>
 #include <classic/RcppVectorView.h>
 
+char *copyMessageToR(const char* const mesg);
+
 #endif

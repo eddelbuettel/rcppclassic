@@ -1,3 +1,7 @@
+2010-12-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/classic/classic.h: Add copyMessageToR() declaration
+
 2010-12-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/doc/RcppClassic.Rnw: Aligned a little with Rcpp vignettes
