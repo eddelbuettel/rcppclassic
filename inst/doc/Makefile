@@ -15,22 +15,29 @@ pdfclean:
 clean:
 	@rm -f *.tex *.bbl *.blg *.aux *.out *.log
 
+setvars:
+ifeq (${R_HOME},)
+R_HOME=	$(shell R RHOME)
+endif
+RPROG=	$(R_HOME)/bin/R
+RSCRIPT=$(R_HOME)/bin/Rscript
+
 RcppClassic-unitTests.pdf:
 	rm -fr unitTests-results/*
-	Rscript --vanilla unitTests/RcppClassic-unitTests.R
-	R CMD Sweave RcppClassic-unitTests.Rnw
-	Rscript --vanilla -e "tools::texi2dvi( 'RcppClassic-unitTests.tex', pdf = TRUE, clean = TRUE )"
+	$(RSCRIPT) --vanilla unitTests/RcppClassic-unitTests.R
+	$(RPROG) CMD Sweave RcppClassic-unitTests.Rnw
+	$(RSCRIPT) --vanilla -e "tools::texi2dvi( 'RcppClassic-unitTests.tex', pdf = TRUE, clean = TRUE )"
 	rm -fr RcppClassic-unitTests.tex
 
 RcppClassic.pdf: RcppClassic.Rnw
-	R CMD Sweave RcppClassic.Rnw
+	$(RPROG) CMD Sweave RcppClassic.Rnw
 ifneq (,$(findstring edd,$(whoami)))
 	pdflatex RcppClassic.tex
 	bibtex RcppClassic
 	pdflatex RcppClassic.tex
 	pdflatex RcppClassic.tex
 else
-	Rscript --vanilla -e "tools::texi2dvi( 'RcppClassic.tex', pdf = TRUE, clean = FALSE )"
+	$(RSCRIPT) --vanilla -e "tools::texi2dvi( 'RcppClassic.tex', pdf = TRUE, clean = FALSE )"
 endif
 	rm -fr RcppClassic.tex
 
