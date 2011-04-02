@@ -1,3 +1,8 @@
+2011-04-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/unitTests/runit.RcppDate.R: renamed 'wrap' test function which
+	clashes with the templated function from Rcpp itself, minor cleanups
+
 2011-02-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/doc/Makefile: Call R and Rscript relative to R_HOME/bin
