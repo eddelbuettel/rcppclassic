@@ -1,6 +1,11 @@
+2011-04-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/unitTests/runit.RcppDate.R: Once again Comment-out
+	test.RcppDatetime.get.functions() as it fails with different TZ values
+
 2011-04-06  Dirk Eddelbuettel  <edd@debian.org>
 
-	* DESCRIPTION: Release 0.9.1 
+	* DESCRIPTION: Release 0.9.1
 
 2011-04-04  Dirk Eddelbuettel  <edd@debian.org>
 
