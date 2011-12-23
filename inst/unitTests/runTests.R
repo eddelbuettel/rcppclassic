@@ -1,6 +1,6 @@
 ## -*- mode: R; tab-width: 4 -*-
 ##
-## Copyright (C) 2009 - 2010	Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2009 - 2011	Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of RcppClassic.
 ##
@@ -27,7 +27,7 @@ if( compareVersion( packageDescription( "inline" )[["Version"]], "0.3.4.4" ) < 0
     stop( "RcppClassic unit tests need at least the version 0.3.4.4 of inline" )
 }
 
-if(require("RUnit", quietly = TRUE)) {
+if (require("RUnit", quietly = TRUE)) {
 
     is_local <- function(){
     	if( exists( "argv", globalenv() ) && "--local" %in% argv ) return(TRUE)
@@ -103,13 +103,8 @@ if(require("RUnit", quietly = TRUE)) {
             }
         }
 
-                                        # if it did not work, try to use /tmp
-        if( is.null(output) ){
-            if( file.exists( "/tmp" ) ){
-                output <- "/tmp"
-            } else{
-                output <- getwd()
-            }
+        if( is.null(output) ) {         # if it did not work, use parent dir
+            output <- ".."              # as BDR does not want /tmp to be used
         }
 
         ## Print results

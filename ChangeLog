@@ -1,6 +1,11 @@
+2011-12-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/unitTests/runTests.R: unit tests output 'fallback' directory
+	changed to '..' and files are now in top-level of $pkg.Rcheck/ 
+
 2011-04-07  Dirk Eddelbuettel  <edd@debian.org>
 
-	* inst/unitTests/runit.RcppDate.R: Once again Comment-out
+	* inst/unitTests/runit.RcppDate.R: Once again comment-out
 	test.RcppDatetime.get.functions() as it fails with different TZ values
 
 2011-04-06  Dirk Eddelbuettel  <edd@debian.org>
