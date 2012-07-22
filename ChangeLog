@@ -1,7 +1,7 @@
 2011-12-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/unitTests/runTests.R: unit tests output 'fallback' directory
-	changed to '..' and files are now in top-level of $pkg.Rcheck/ 
+	changed to '..' and files are now in top-level of $pkg.Rcheck/
 
 2011-04-07  Dirk Eddelbuettel  <edd@debian.org>
 
