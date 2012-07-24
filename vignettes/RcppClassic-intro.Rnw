@@ -28,6 +28,7 @@
 require( RcppClassic )
 prettyVersion <- packageDescription("RcppClassic")$Version
 prettyDate <- format(Sys.Date(), "%B %e, %Y")
+RcppBibfile <- sub("\\.bib$", "", Rcpp:::bib())
 @
 
 \title{\pkg{RcppClassic}: Deprecated Rcpp API}
@@ -40,7 +41,7 @@ prettyDate <- format(Sys.Date(), "%B %e, %Y")
 
 \noindent
 This document presents the \pkg{RcppClassic} package. This package
-has been factored out of \pkg{Rcpp} \citep{CRAN:Rcpp}
+has been factored out of \pkg{Rcpp} \citep{JSS:Rcpp,CRAN:Rcpp}
 and only contains code that is
 considered deprecated.
 
@@ -112,7 +113,7 @@ maintainance and ease of use.
 
 
 \bibliographystyle{plainnat}
-\bibliography{\Sexpr{Rcpp:::bib()}}
+\bibliography{\Sexpr{RcppBibfile}}
 
 \end{document}
 
