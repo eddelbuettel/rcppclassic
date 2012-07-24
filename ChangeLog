@@ -1,3 +1,12 @@
+2012-07-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 0.9.2
+
+	* vignettes/*: moved from inst/doc, Makefile updated accordingly
+	* vignettes/RcppClassic-intro.Rnw: renamed from RcppClassic.Rnw
+
+	* DESCRIPTION: changed Maintainer: to single person per CRAN Policy
+
 2011-12-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/unitTests/runTests.R: unit tests output 'fallback' directory

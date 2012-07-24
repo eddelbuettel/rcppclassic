@@ -8,10 +8,10 @@
 ## on Ubuntu so for now Dirk will insist on pdflatex and this helps.
 whoami=$(shell whoami)
 
-all: RcppClassic-unitTests.pdf RcppClassic.pdf 
+all: RcppClassic-unitTests.pdf RcppClassic-intro.pdf 
 
 pdfclean:
-	rm -f RcppClassic.pdf RcppClassic-unitTests.pdf
+	rm -f RcppClassic-intro.pdf RcppClassic-unitTests.pdf
 clean:
 	@rm -f *.tex *.bbl *.blg *.aux *.out *.log
 
@@ -29,15 +29,15 @@ RcppClassic-unitTests.pdf:
 	$(RSCRIPT) --vanilla -e "tools::texi2dvi( 'RcppClassic-unitTests.tex', pdf = TRUE, clean = TRUE )"
 	rm -fr RcppClassic-unitTests.tex
 
-RcppClassic.pdf: RcppClassic.Rnw
-	$(RPROG) CMD Sweave RcppClassic.Rnw
+RcppClassic-intro.pdf: RcppClassic-intro.Rnw
+	$(RPROG) CMD Sweave RcppClassic-intro.Rnw
 ifneq (,$(findstring edd,$(whoami)))
-	pdflatex RcppClassic.tex
-	bibtex RcppClassic
-	pdflatex RcppClassic.tex
-	pdflatex RcppClassic.tex
+	pdflatex RcppClassic-intro.tex
+	bibtex RcppClassic-intro
+	pdflatex RcppClassic-intro.tex
+	pdflatex RcppClassic-intro.tex
 else
-	$(RSCRIPT) --vanilla -e "tools::texi2dvi( 'RcppClassic.tex', pdf = TRUE, clean = FALSE )"
+	$(RSCRIPT) --vanilla -e "tools::texi2dvi( 'RcppClassic-intro.tex', pdf = TRUE, clean = FALSE )"
 endif
-	rm -fr RcppClassic.tex
+	rm -fr RcppClassic-intro.tex
 
