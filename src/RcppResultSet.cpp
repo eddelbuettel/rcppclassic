@@ -4,7 +4,7 @@
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
 // Copyright (C) 2008 - 2009 Dirk Eddelbuettel
-// Copyright (C) 2010	     Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2010 - 2012 Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppClassic.
 //
@@ -26,7 +26,35 @@
 RcppResultSet::RcppResultSet() : numProtected(0), values() { }
 
 namespace Rcpp { 
-
+    
+    // these functions are no longer exported in Rcpp.h as of Rcpp 0.10.2
+    #if defined(RCPP_VERSION) && RCPP_VERSION > Rcpp_Version(0,10,1)
+    namespace internal{
+        
+        SEXP getPosixClasses(){
+        	SEXP datetimeclass = PROTECT(Rf_allocVector(STRSXP,2));
+        	SET_STRING_ELT(datetimeclass, 0, Rf_mkChar("POSIXct"));
+        	SET_STRING_ELT(datetimeclass, 1, Rf_mkChar("POSIXt"));
+        	UNPROTECT(1) ;
+        	return datetimeclass ;
+        }
+        
+        SEXP new_posixt_object( double d){
+        	SEXP x = PROTECT( Rf_ScalarReal( d ) ) ;
+        	Rf_setAttrib(x, R_ClassSymbol, getPosixClasses() ); 
+        	UNPROTECT(1); 
+        	return x ;	
+        }
+        
+        SEXP new_date_object( double d){
+        	SEXP x = PROTECT(Rf_ScalarReal( d ) ) ;
+        	Rf_setAttrib(x, R_ClassSymbol, Rf_mkString("Date")); 
+        	UNPROTECT(1);
+        	return x;
+        }    
+    }
+    #endif
+    
     // template specialisation for wrap() on the date and datetime classes
     template <> SEXP wrap(const RcppDate &date) {
     return internal::new_date_object( date.getJDN() - RcppDate::Jan1970Offset ) ;
