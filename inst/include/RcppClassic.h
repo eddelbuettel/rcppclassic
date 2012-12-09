@@ -4,7 +4,7 @@
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
 // Copyright (C) 2008 - 2009 Dirk Eddelbuettel
-// Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2009 - 2012 Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppClassic.
 //
@@ -28,5 +28,17 @@
 #include <classic/classic.h>
 #include <Rcpp.h>
 #include <classic/classic_backward.h>
+
+namespace Rcpp{
+    
+    #if defined(RCPP_VERSION) && RCPP_VERSION > Rcpp_Version(0,10,1)
+    namespace internal{
+        SEXP getPosixClasses() ;
+        SEXP new_posixt_object( double d) ;
+        SEXP new_date_object( double d) ;
+    }
+    #endif
+}
+    
 
 #endif

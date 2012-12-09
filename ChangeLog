@@ -2,6 +2,7 @@
 
 	* src/RcppResultSet.cpp : define getPosixClasses, new_posixt_object and
 	new_date_object as these will no longer be included in Rcpp 0.10.2
+	* include/RcppClassic.h: same
 
 2012-07-23  Dirk Eddelbuettel  <edd@debian.org>
 
