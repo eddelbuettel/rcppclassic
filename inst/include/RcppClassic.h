@@ -29,16 +29,15 @@
 #include <Rcpp.h>
 #include <classic/classic_backward.h>
 
+#if defined(RCPP_VERSION) && RCPP_VERSION > Rcpp_Version(0,10,1)
 namespace Rcpp{
-    
-    #if defined(RCPP_VERSION) && RCPP_VERSION > Rcpp_Version(0,10,1)
     namespace internal{
         SEXP getPosixClasses() ;
         SEXP new_posixt_object( double d) ;
         SEXP new_date_object( double d) ;
     }
-    #endif
-}
     
+}
+#endif
 
 #endif
