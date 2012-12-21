@@ -1,3 +1,10 @@
+2012-12-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 0.9.3
+
+	* DESCRIPTION: Increased Depends to Rcpp (>= 0.10.2)
+	* inst/include/RcppClassic.h: Remove test for Rcpp 0.10.2, use Depends
+
 2012-12-09  Romain Francois <romain@r-enthusiasts.com>
 
 	* src/RcppResultSet.cpp : define getPosixClasses, new_posixt_object and

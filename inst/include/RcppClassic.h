@@ -29,7 +29,6 @@
 #include <Rcpp.h>
 #include <classic/classic_backward.h>
 
-#if defined(RCPP_VERSION) && RCPP_VERSION > Rcpp_Version(0,10,1)
 namespace Rcpp{
     namespace internal{
         SEXP getPosixClasses() ;
@@ -38,6 +37,5 @@ namespace Rcpp{
     }
     
 }
-#endif
 
 #endif
