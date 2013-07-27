@@ -3,7 +3,7 @@
 // RcppFunction.cpp: RcppClassic R/C++ interface class library -- function support
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
-// Copyright (C) 2008 - 2009 Dirk Eddelbuettel
+// Copyright (C) 2008 - 2013 Dirk Eddelbuettel
 //
 // This file is part of RcppClassic.
 //
@@ -49,7 +49,7 @@ SEXP RcppFunction::listCall() {
     PROTECT(R_fcall = Rf_lang2(fn, R_NilValue));
     numProtected++;
     SETCADR(R_fcall, listArg);
-    SEXP result = Rf_eval(R_fcall, R_NilValue);
+    SEXP result = Rf_eval(R_fcall, R_EmptyEnv);
     names.clear();
     listSize = currListPosn = 0; // Ready for next call.
     return result;
@@ -62,7 +62,7 @@ SEXP RcppFunction::vectorCall() {
     PROTECT(R_fcall = Rf_lang2(fn, R_NilValue));
     numProtected++;
     SETCADR(R_fcall, vectorArg);
-    SEXP result = Rf_eval(R_fcall, R_NilValue);
+    SEXP result = Rf_eval(R_fcall, R_EmptyEnv);
     vectorArg = R_NilValue; // Ready for next call.
     return result;
 }
