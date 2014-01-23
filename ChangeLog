@@ -1,3 +1,8 @@
+2014-01-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/RcppResultSet.cpp: Add new #ifdef test to permit compilation
+	under Rcpp versions later than 0.10.6 which changed once again
+
 2013-07-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Release 0.9.4

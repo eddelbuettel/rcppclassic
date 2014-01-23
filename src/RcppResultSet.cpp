@@ -3,7 +3,7 @@
 // RcppResultSet.cpp: RcppClassic R/C++ interface class library -- Results back to R
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
-// Copyright (C) 2008 - 2009 Dirk Eddelbuettel
+// Copyright (C) 2008 - 2014 Dirk Eddelbuettel
 // Copyright (C) 2010 - 2012 Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppClassic.
@@ -28,7 +28,7 @@ RcppResultSet::RcppResultSet() : numProtected(0), values() { }
 namespace Rcpp { 
     
     // these functions are no longer exported in Rcpp.h as of Rcpp 0.10.2
-    #if defined(RCPP_VERSION) && RCPP_VERSION > Rcpp_Version(0,10,1)
+    #if defined(RCPP_VERSION) && RCPP_VERSION >  Rcpp_Version(0,10,1) && RCPP_VERSION <= Rcpp_Version(0,10,6)
     namespace internal{
         
         SEXP getPosixClasses(){
