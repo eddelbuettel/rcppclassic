@@ -15,3 +15,5 @@ rm -f src/*.o src/*.so src/*.a src/*.d src/*.dll src/*.rc \
 
 find . -name \*~ -exec rm {} \;
 find . -name \*.flc -exec rm {} \;
+
+test -d inst/lib && rmdir inst/lib

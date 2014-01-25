@@ -1,3 +1,14 @@
+2014-01-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Move methods from Depends: to Imports
+	* NAMESPACE: Add 'import(methods)'
+
+	* R/inline.R: Switch ':::' to '::' in two cases
+
+	* cleanup: Remove (empty) inst/dir if it exists
+
+	* vignettes/RcppClassic-intro.Rnw: Updated
+
 2014-01-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/RcppResultSet.cpp: Add new #ifdef test to permit compilation

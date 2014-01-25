@@ -7,8 +7,8 @@ inlineCxxPlugin <- Rcpp:::Rcpp.plugin.maker(
     libs = RcppClassicLdFlags()
     )
     
-RcppClassic.system.file <- function(...){
-    tools:::file_path_as_absolute( base:::system.file( ..., package = "RcppClassic" ) )
+RcppClassic.system.file <- function(...) {
+    tools::file_path_as_absolute(base::system.file(..., package = "RcppClassic"))
 }
 
 RcppClassicLdPath <- function() {

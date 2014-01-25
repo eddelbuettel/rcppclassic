@@ -16,13 +16,15 @@
     urlcolor=link
 }
 
+\usepackage{microtype}                     %% cf http://www.khirevich.com/latex/microtype/
+\usepackage[T1]{fontenc}		   %% cf http://www.khirevich.com/latex/font/
+\usepackage[bitstream-charter]{mathdesign} %% cf http://www.khirevich.com/latex/font/
+
 \newcommand{\proglang}[1]{\textsf{#1}}
 \newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
 
 \usepackage[authoryear,round,longnamesfirst]{natbib}
 
-\RequirePackage{ae,mathpple}    % ae as a default font pkg works with Sweave
-\RequirePackage[T1]{fontenc}
 
 <<echo=FALSE,print=FALSE>>=
 require( RcppClassic )
@@ -41,29 +43,37 @@ RcppBibfile <- sub("\\.bib$", "", Rcpp:::bib())
 
 \noindent
 This document presents the \pkg{RcppClassic} package. This package
-has been factored out of \pkg{Rcpp} \citep{JSS:Rcpp,CRAN:Rcpp}
-and only contains code that is
-considered deprecated.
+has been factored out of \pkg{Rcpp} \citep{JSS:Rcpp,CRAN:Rcpp,Eddelbuettel:2013:Rcpp}
+and only contains code that is considered deprecated.
 
 This package is released for the sole purpose of allowing package authors
 that are still using the classic \pkg{Rcpp} API to keep
 their package buildable. This document explains the changes needed in
-a package to use both the current and classic Rcpp APIs.
+a package to use both the current and classic \pkg{Rcpp} APIs.
 
 \section{If you must use \pkg{RcppClassic}}
 
-A few changes are needed in packages that want to use the classic Rcpp API
-that is contained in RcppClassic. RcppClassic contains a sample package
-called RcppClassicExample that can be used as a template.
+A few changes are needed in packages that want to use the classic \pkg{Rcpp}
+API that is contained in \pkg{RcppClassic}. A sample package called
+\pkg{RcppClassicExample} is on CRAN and can be used as a template.
 
 \subsection{The DESCRIPTION file}
 
-The client package must declare that it depends on both Rcpp and RcppClassic,
-in the Depends field and the LinkingTo field, so it must contain this:
+The client package must declare that it depends on both \pkg{Rcpp} and \pkg{RcppClassic},
+in the Imports field and the LinkingTo field, so it must contain this:
 
 \begin{verbatim}
-Depends: RcppClassic, Rcpp
+Imports: RcppClassic, Rcpp
 LinkingTo: RcppClassic, Rcpp
+\end{verbatim}
+
+\subsection{The NAMESPACE file}
+
+The client package should import both \pkg{Rcpp} and \pkg{RcppClassic}:
+
+\begin{verbatim}
+import(Rcpp)
+import(RcppClassic)
 \end{verbatim}
 
 \subsection{Makevars}
@@ -74,8 +84,16 @@ and RcppClassic are used:
 \begin{verbatim}
 PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` \
            `$(R_HOME)/bin/Rscript -e "RcppClassic:::LdFlags()"`
-
 \end{verbatim}
+
+Starting with \pkg{Rcpp} version 0.11.0, the result of \verb|Rcpp:::LdFlags()| is
+an empty string as Rcpp no longer provides a user-library. The above then
+reduces to
+
+\begin{verbatim}
+PKG_LIBS = `$(R_HOME)/bin/Rscript -e "RcppClassic:::LdFlags()"`
+\end{verbatim}
+
 
 \subsection{Makevars.win}
 
@@ -86,7 +104,13 @@ PKG_LIBS = $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "Rcpp:::LdFlags()
 PKG_LIBS += $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "RcppClassic:::LdFlags()")
 \end{verbatim}
 
-\subsection{include RcppClassic.h instead of Rcpp.h}
+Similarly, when \pkg{Rcpp} 0.11.0 or later is used, the following is sufficient:
+\begin{verbatim}
+PKG_LIBS = $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "RcppClassic:::LdFlags()")
+\end{verbatim}
+
+
+\subsection{Include RcppClassic.h instead of Rcpp.h}
 
 Finally, all instances of this line :
 
@@ -104,12 +128,12 @@ need to be replaced by:
 \section{You should not use RcppClassic}
 
 The previous section discusses the set of changes required to update a
-package so that it uses the classic API from RcppClassic since it has been
-removed from Rcpp.
+package so that it uses the classic API from \pkg{RcppClassic} since it has
+been removed from \pkg{Rcpp}.
 
-We do, however, recommend that package authors stop using the classic API, which
-is largely superseded by the current Rcpp API, in terms of performance, design,
-maintainance and ease of use.
+We do, however, recommend that package authors stop using the classic API,
+which is largely superseded by the current \pkg{Rcpp} API, in terms of
+performance, design, maintainance and ease of use.
 
 
 \bibliographystyle{plainnat}
