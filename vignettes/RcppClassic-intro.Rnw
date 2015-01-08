@@ -1,6 +1,8 @@
 \documentclass[10pt]{article}
 %\VignetteIndexEntry{RcppClassic}
+%\VignetteKeywords{R,Rcpp,API}
 %\VignettePackage{RcppClassic}
+%\VignetteEngine{highlight::highlight}
 
 \usepackage{vmargin}
 \setmargrb{0.75in}{0.75in}{0.75in}{0.75in}

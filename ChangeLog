@@ -1,3 +1,10 @@
+2015-01-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/RcppClassic-intro.Rnw: Updated build instructions
+	* vignettes/Makefile: Deleted, no longer needed
+
+	* inst/examples/RcppClassicExample/: Modernized package
+
 2014-01-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Move methods from Depends: to Imports

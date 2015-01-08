@@ -5,8 +5,7 @@ rm -f src/*.o src/*.so src/*.a src/*.d src/*.dll src/*.rc \
 	inst/doc/.build.timestamp \
 	inst/doc/*.aux inst/doc/*.log inst/doc/*.tex \
 	inst/doc/latex/*.aux inst/doc/latex/*.log \
-	src/Makedeps libRcppClassic.a \
-	build/RcppClassic.pdf 
+	src/Makedeps libRcppClassic.a 
 
 (cd vignettes; \
     make clean; \
