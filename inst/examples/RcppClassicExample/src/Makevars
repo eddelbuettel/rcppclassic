@@ -1,2 +1,2 @@
-PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` `$(R_HOME)/bin/Rscript -e "RcppClassic:::LdFlags()"` 
+PKG_LIBS = `$(R_HOME)/bin/Rscript -e "RcppClassic:::LdFlags()"` 
 

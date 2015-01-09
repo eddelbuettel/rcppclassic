@@ -61,7 +61,7 @@ API that is contained in \pkg{RcppClassic}. A sample package called
 
 \subsection{The DESCRIPTION file}
 
-The client package must declare that it depends on both \pkg{Rcpp} and \pkg{RcppClassic},
+The client package must declare that it depends on both \pkg{Rcpp} and \pkg{RcppClassic}
 in the Imports field and the LinkingTo field, so it must contain this:
 
 \begin{verbatim}
@@ -74,7 +74,7 @@ LinkingTo: RcppClassic, Rcpp
 The client package should import both \pkg{Rcpp} and \pkg{RcppClassic}:
 
 \begin{verbatim}
-import(Rcpp)
+importFrom(Rcpp, evalCpp)
 import(RcppClassic)
 \end{verbatim}
 
