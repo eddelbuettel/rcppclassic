@@ -1,3 +1,9 @@
+2015-01-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 0.9.6
+
+	* src/Makevars: Updated, one char change requested by CRAN Maintainers
+
 2015-01-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/RcppClassic-intro.Rnw: Small update for look&feel
