@@ -1,3 +1,7 @@
+2015-01-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/RcppClassic-intro.Rnw: Small update for look&feel
+
 2015-01-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/RcppClassic-intro.Rnw: Small update regarding builds
