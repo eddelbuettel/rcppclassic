@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[11pt]{article}
 %\VignetteIndexEntry{RcppClassic}
 %\VignetteKeywords{R,Rcpp,API}
 %\VignettePackage{RcppClassic}
@@ -27,6 +27,11 @@
 
 \usepackage[authoryear,round,longnamesfirst]{natbib}
 
+\newsavebox{\hlbox}
+\definecolor{hlBg}{rgb}{0.949019607843137,0.949019607843137,0.949019607843137}
+\definecolor{hlBd}{rgb}{0,0,0}
+\renewenvironment{Hchunk}{\vspace{0.125em}\noindent\begin{lrbox}{\hlbox}\begin{minipage}[b]{.98\linewidth}}%
+    {\end{minipage}\end{lrbox}\fcolorbox{hlBd}{hlBg}{\usebox{\hlbox}}\vspace{0.125em}}
 
 <<echo=FALSE,print=FALSE>>=
 require( RcppClassic )
@@ -64,67 +69,70 @@ API that is contained in \pkg{RcppClassic}. A sample package called
 The client package must declare that it depends on both \pkg{Rcpp} and \pkg{RcppClassic}
 in the Imports field and the LinkingTo field, so it must contain this:
 
-\begin{verbatim}
+<<lang=sh>>=
 Imports: RcppClassic, Rcpp
 LinkingTo: RcppClassic, Rcpp
-\end{verbatim}
+@
 
 \subsection{The NAMESPACE file}
 
 The client package should import both \pkg{Rcpp} and \pkg{RcppClassic}:
 
-\begin{verbatim}
+<<eval=FALSE,prompt="">>=
 importFrom(Rcpp, evalCpp)
 import(RcppClassic)
-\end{verbatim}
+@
 
 \subsection{Makevars}
 
 The Makevars file must be updated so that user libraries for both Rcpp
 and RcppClassic are used:
 
-\begin{verbatim}
+
+<<lang=make>>=
 PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` \
            `$(R_HOME)/bin/Rscript -e "RcppClassic:::LdFlags()"`
-\end{verbatim}
+@
 
 Starting with \pkg{Rcpp} version 0.11.0, the result of \verb|Rcpp:::LdFlags()| is
 an empty string as Rcpp no longer provides a user-library. The above then
 reduces to
 
-\begin{verbatim}
+<<lang=make>>=
 PKG_LIBS = `$(R_HOME)/bin/Rscript -e "RcppClassic:::LdFlags()"`
-\end{verbatim}
+@
 
 
 \subsection{Makevars.win}
 
 The Makevars.win must also be updated for the same reason:
 
-\begin{verbatim}
+<<lang=make>>=
 PKG_LIBS = $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "Rcpp:::LdFlags()")
 PKG_LIBS += $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "RcppClassic:::LdFlags()")
-\end{verbatim}
+@
 
-Similarly, when \pkg{Rcpp} 0.11.0 or later is used, the following is sufficient:
-\begin{verbatim}
+Similarly, when \pkg{Rcpp} 0.11.0 or later is used, the following is
+sufficient:
+
+<<lang=make>>=
 PKG_LIBS = $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "RcppClassic:::LdFlags()")
-\end{verbatim}
+@
 
 
 \subsection{Include RcppClassic.h instead of Rcpp.h}
 
 Finally, all instances of this line :
 
-\begin{verbatim}
+<<lang=cpp>>=
 #include <Rcpp.h>
-\end{verbatim}
+@
 
 need to be replaced by:
 
-\begin{verbatim}
+<<lang=cpp>>=
 #include <RcppClassic.h>
-\end{verbatim}
+@
 
 
 \section{You should not use RcppClassic}
