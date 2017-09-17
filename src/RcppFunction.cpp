@@ -1,4 +1,4 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
+// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 //
 // RcppFunction.cpp: RcppClassic R/C++ interface class library -- function support
 //
@@ -24,7 +24,7 @@
 
 RcppFunction::RcppFunction(SEXP fn_) : fn(fn_) { 
     if (!Rf_isFunction(fn))
-	throw std::range_error("RcppFunction: non-function where function expected");
+        throw std::range_error("RcppFunction: non-function where function expected");
     numProtected = 0;
     currListPosn = 0;
     listSize = 0;
@@ -37,13 +37,13 @@ RcppFunction::~RcppFunction() {
 
 SEXP RcppFunction::listCall() {
     if (names.size() != (unsigned)listSize)
-	throw std::range_error("RcppFunction::listCall: no. of names != no. of items");
+        throw std::range_error("RcppFunction::listCall: no. of names != no. of items");
     if (currListPosn != listSize)
-	throw std::range_error("RcppFunction::listCall: list has incorrect size");
+        throw std::range_error("RcppFunction::listCall: list has incorrect size");
     SEXP nm = PROTECT(Rf_allocVector(STRSXP,listSize));
     numProtected++;
     for (int i=0; i < listSize; i++)
-	SET_STRING_ELT(nm, i, Rf_mkChar(names[i].c_str()));
+        SET_STRING_ELT(nm, i, Rf_mkChar(names[i].c_str()));
     Rf_setAttrib(listArg, R_NamesSymbol, nm);
     SEXP R_fcall;
     PROTECT(R_fcall = Rf_lang2(fn, R_NilValue));
@@ -57,7 +57,7 @@ SEXP RcppFunction::listCall() {
 
 SEXP RcppFunction::vectorCall() {
     if (vectorArg == R_NilValue)
-	throw std::range_error("RcppFunction::vectorCall: vector has not been set");
+        throw std::range_error("RcppFunction::vectorCall: vector has not been set");
     SEXP R_fcall;
     PROTECT(R_fcall = Rf_lang2(fn, R_NilValue));
     numProtected++;
@@ -80,52 +80,52 @@ void RcppFunction::setRListSize(int n) {
 
 void RcppFunction::appendToRList(std::string name, double value) {
     if (currListPosn < 0 || currListPosn >= listSize)
-	throw std::range_error("RcppFunction::appendToRList(double): list posn out of range");
+        throw std::range_error("RcppFunction::appendToRList(double): list posn out of range");
     SEXP valsxp = PROTECT( Rf_ScalarReal( value ) ) ;
-	numProtected++;
+    numProtected++;
     // FIXME: valsxp does not need to be protected anymore
     //        since it is protected by listArg
-	SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
+    SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
     names.push_back(name);
 }
 
 void RcppFunction::appendToRList(std::string name, int value) {
     if (currListPosn < 0 || currListPosn >= listSize)
-	throw std::range_error("RcppFunction::appendToRlist(int): posn out of range");
+        throw std::range_error("RcppFunction::appendToRlist(int): posn out of range");
     SEXP valsxp = PROTECT(Rf_ScalarInteger(value));
     numProtected++;
     // FIXME: valsxp does not need to be protected anymore
     //        since it is protected by listArg
-	SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
+    SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
     names.push_back(name);
 }
 
 void RcppFunction::appendToRList(std::string name, std::string value) {
     if (currListPosn < 0 || currListPosn >= listSize)
-	throw std::range_error("RcppFunction::appendToRlist(string): posn out of range");
+        throw std::range_error("RcppFunction::appendToRlist(string): posn out of range");
     SEXP valsxp = PROTECT(Rf_mkString(value.c_str()));
     numProtected++;
     // FIXME: valsxp does not need to be protected anymore
     //        since it is protected by listArg
-	SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
+    SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
     names.push_back(name);
 }
 
 void RcppFunction::appendToRList(std::string name, RcppDate& date) {
     if (currListPosn < 0 || currListPosn >= listSize)
-	throw std::range_error("RcppFunction::appendToRlist(RcppDate): list posn out of range");
-	SEXP valsxp = PROTECT(Rcpp::wrap(date));
+        throw std::range_error("RcppFunction::appendToRlist(RcppDate): list posn out of range");
+    SEXP valsxp = PROTECT(Rcpp::wrap(date));
     numProtected++;
     // FIXME: valsxp does not need to be protected anymore
     //        since it is protected by listArg
-	SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
+    SET_VECTOR_ELT(listArg, currListPosn++, valsxp);
     names.push_back(name);
 }
 
 void RcppFunction::appendToRList(std::string name, RcppDatetime& datetime) {
     if (currListPosn < 0 || currListPosn >= listSize)
-	throw std::range_error("RcppFunction::appendToRlist(RcppDatetime): list posn out of range");
-	SEXP valsxp = PROTECT(Rcpp::wrap(datetime));
+        throw std::range_error("RcppFunction::appendToRlist(RcppDatetime): list posn out of range");
+    SEXP valsxp = PROTECT(Rcpp::wrap(datetime));
     numProtected++;
     // FIXME: valsxp does not need to be protected anymore
     //        since it is protected by listArg
