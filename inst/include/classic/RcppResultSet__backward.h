@@ -1,8 +1,8 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
+// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 //
 // RcppResultSet.h: RcppClassic R/C++ interface class library -- Results back to R
 //
-// Copyright (C) 2010	     Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2010        Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppClassic.
 //
@@ -24,33 +24,33 @@
 
 template <typename T> 
 void RcppResultSet::add__impl( const std::string& name, const T& t ){
-	push_back( name, Rcpp::wrap(t) );
+    push_back( name, Rcpp::wrap(t) );
 }
 
 template <typename T> 
 void RcppResultSet::add__matrix__std( const std::string& name, const std::vector<std::vector<T> >& mat ) throw(std::range_error) {
     int nx = (int)mat.size();
     if (nx == 0)
-	throw std::range_error("RcppResultSet::add: zero length vector<vector<> >");
+        throw std::range_error("RcppResultSet::add: zero length vector<vector<> >");
     
-	int ny = (int)mat[0].size();
+    int ny = (int)mat[0].size();
     if (ny == 0)
-	throw std::range_error("RcppResultSet::add: no columns in vector<vector<> >");
+        throw std::range_error("RcppResultSet::add: no columns in vector<vector<> >");
 
-	Rcpp::Matrix< Rcpp::traits::r_sexptype_traits<T>::rtype > out( nx, ny ) ;
-	for (int i = 0; i < nx; i++)
-	for (int j = 0; j < ny; j++)
-	    out[i + nx*j] = mat[i][j];
+    Rcpp::Matrix< Rcpp::traits::r_sexptype_traits<T>::rtype > out( nx, ny ) ;
+    for (int i = 0; i < nx; i++)
+        for (int j = 0; j < ny; j++)
+            out[i + nx*j] = mat[i][j];
     push_back( name, out );
 }
 
 
 template <typename T> 
 void RcppResultSet::add__matrix( const std::string& name, T** input, int nx, int ny) {
-	Rcpp::Matrix< Rcpp::traits::r_sexptype_traits<T>::rtype > mat( nx, ny ) ;
-	for (int i = 0; i < nx; i++)
-	for (int j = 0; j < ny; j++)
-		mat[i + nx*j] = input[i][j] ;
+    Rcpp::Matrix< Rcpp::traits::r_sexptype_traits<T>::rtype > mat( nx, ny ) ;
+    for (int i = 0; i < nx; i++)
+        for (int j = 0; j < ny; j++)
+            mat[i + nx*j] = input[i][j] ;
     push_back( name, mat );
 }
 
