@@ -2,7 +2,8 @@
 //
 // RcppResultSet.h: RcppClassic R/C++ interface class library -- Results back to R
 //
-// Copyright (C) 2010        Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2010 - 2013  Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2014 - 2017  Dirk Eddelbuettel
 //
 // This file is part of RcppClassic.
 //

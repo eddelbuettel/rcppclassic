@@ -2,8 +2,8 @@
 //
 // RcppFunction.cpp: RcppClassic R/C++ interface class library -- function support
 //
-// Copyright (C) 2005 - 2006 Dominick Samperi
-// Copyright (C) 2008 - 2013 Dirk Eddelbuettel
+// Copyright (C) 2005 - 2006  Dominick Samperi
+// Copyright (C) 2008 - 2017  Dirk Eddelbuettel
 //
 // This file is part of RcppClassic.
 //
