@@ -1,3 +1,24 @@
+2017-09-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.9.7
+
+	* vignettes/RcppClassic-intro.Rmd: Converted from Rnw to Rmd using
+	the new 'pinp' package
+	* vignettes/pinp.cls: Added for vignette use
+
+	* src/init.c: New file with (empty) registration (as no .Call() here)
+	* NAMESPACE: Added .registration=TRUE to useDynLib()
+
+	* src/RcppFunction.cpp: Reindented, replaced tabs with spaces,
+	which realigns code as intended and suppresses a new g++ warning
+	* src/RcppResultSet.cpp: Idem
+	* inst/include/classic/RcppResultSet__backward.h: Idem
+
+	* src/Makevars: Strip libraries if /usr/bin/strip is present
+
+	* .travis.yml: Converted to using run.sh from r-travis; added
+	pinp; add edd/misc ppa for r-cran-pinp binary
+
 2015-01-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Release 0.9.6

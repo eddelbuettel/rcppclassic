@@ -1,6 +1,6 @@
 Package: RcppClassic
 Title: Deprecated 'classic' Rcpp API 
-Version: 0.9.6.1
+Version: 0.9.7
 Date: 2017-09-17
 Author: Dirk Eddelbuettel and Romain Francois, with contributions by David Reiss,
  and based on code written during 2005 and 2006 by Dominick Samperi
@@ -15,4 +15,3 @@ LinkingTo: Rcpp
 VignetteBuilder: knitr
 License: GPL (>= 2)
 MailingList: Please send questions and comments about Rcpp to rcpp-devel@lists.r-forge.r-project.org
-Additional_repositories: https://ghrr.github.io/drat
