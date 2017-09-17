@@ -8,8 +8,7 @@ rm -f src/*.o src/*.so src/*.a src/*.d src/*.dll src/*.rc \
 	src/Makedeps libRcppClassic.a 
 
 (cd vignettes; \
-    make clean; \
-    rm -rf auto; \
+    rm -rf auto *.bbl *.xwm *.tex; \
     cd .. )
 
 find . -name \*~ -exec rm {} \;
