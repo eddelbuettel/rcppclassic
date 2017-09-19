@@ -51,6 +51,42 @@ vignette: >
   %\VignetteKeywords{R,Rcpp,API}
   %\VignettePackage{RcppClassic}
   %\VignetteEngine{knitr::rmarkdown}
+
+# We include the generated .bbl file directly to not require a bib file
+include-after: |
+  \begin{thebibliography}{3}
+  \newcommand{\enquote}[1]{``#1''}
+  \providecommand{\natexlab}[1]{#1}
+  \providecommand{\url}[1]{\texttt{#1}}
+  \providecommand{\urlprefix}{URL }
+  \expandafter\ifx\csname urlstyle\endcsname\relax
+    \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+    \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+    \urlstyle{rm}\Url}\fi
+  \providecommand{\eprint}[2][]{\url{#2}}
+  
+  \bibitem[{Eddelbuettel(2013)}]{Eddelbuettel:2013:Rcpp}
+  Eddelbuettel D (2013).
+  \newblock \emph{Seamless R and C++ Integration with Rcpp}.
+  \newblock Use R! Springer, New York.
+  \newblock ISBN 978-1-4614-6867-7.
+  
+  \bibitem[{Eddelbuettel and Balamuta(2017)}]{PeerJ:Rcpp}
+  Eddelbuettel D, Balamuta JJ (2017).
+  \newblock \enquote{Extending R with C++: A Brief Introduction to Rcpp.}
+  \newblock \emph{PeerJ Preprints}, \textbf{5}.
+  \newblock \urlprefix\url{10.7287/peerj.preprints.3188v1/}.
+  
+  \bibitem[{Eddelbuettel \emph{et~al.}(2017)Eddelbuettel, Fran\c{c}ois, Allaire,
+    Ushey, Kou, Russel, Chambers, and Bates}]{CRAN:Rcpp}
+  Eddelbuettel D, Fran\c{c}ois R, Allaire J, Ushey K, Kou Q, Russel N, Chambers
+    J, Bates D (2017).
+  \newblock \emph{{Rcpp}: Seamless {R} and {C++} Integration}.
+  \newblock R package version 0.12.12,
+  \urlprefix\url{http://CRAN.R-Project.org/package=Rcpp}.
+
+  \end{thebibliography}
+
 ---
 
 \noindent This document presents the \pkg{RcppClassic} package. This
@@ -148,25 +184,3 @@ We do, however, recommend that package authors stop using the classic API.
 Iy has been more than superseded by the current \pkg{Rcpp} API in terms of
 performance, design, maintainance, and ease of use.
 
-
-\begin{thebibliography}{}
-
-\bibitem[\protect\citeauthoryear{Eddelbuettel}{Eddelbuettel}{2013}]{Eddelbuettel:2013:Rcpp}
-Eddelbuettel, D. (2013).
-\newblock {\em Seamless R and C++ Integration with Rcpp}.
-\newblock Use R! New York: Springer.
-
-\bibitem[\protect\citeauthoryear{Eddelbuettel and Balamuta}{Eddelbuettel and
-  Balamuta}{2017}]{PeerJ:Rcpp}
-Eddelbuettel, D. and J.~J. Balamuta (2017, August).
-\newblock Extending {R} with {C++}: A brief introduction to {Rcpp}.
-\newblock {\em PeerJ Preprints\/}~{\em 5}.
-
-\bibitem[\protect\citeauthoryear{Eddelbuettel, Fran\c{c}ois, Allaire, Ushey,
-  Kou, Russel, Chambers, and Bates}{Eddelbuettel et~al.}{2017}]{CRAN:Rcpp}
-Eddelbuettel, D., R.~Fran\c{c}ois, J.~Allaire, K.~Ushey, Q.~Kou, N.~Russel,
-  J.~Chambers, and D.~Bates (2017).
-\newblock {\em {Rcpp}: Seamless {R} and {C++} Integration}.
-\newblock R package version 0.12.12.
-
-\end{thebibliography}

@@ -1,3 +1,14 @@
+2017-09-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.9.8
+
+	* src/Makevars ($(USERLIBST)): Only strip on Linux
+
+	* cleanup: Also remove src/*.dylib and vignette files
+
+	* vignettes/RcppClassic-intro.Rmd: Minor updates
+	* vignettes/pinp.cls: Minor updates from pinp package
+
 2017-09-17  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.9.7

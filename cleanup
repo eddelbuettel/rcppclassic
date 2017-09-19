@@ -1,11 +1,13 @@
 
 rm -f src/*.o src/*.so src/*.a src/*.d src/*.dll src/*.rc \
-	inst/lib/libRcppClassic.so inst/lib/*.h inst/lib/libRcppClassic.a \
+	inst/lib/libRcppClassic.so inst/lib/libRcppClassic.dylib \
+        inst/lib/*.h inst/lib/libRcppClassic.a \
 	inst/doc/*.out \
 	inst/doc/.build.timestamp \
 	inst/doc/*.aux inst/doc/*.log inst/doc/*.tex \
 	inst/doc/latex/*.aux inst/doc/latex/*.log \
-	src/Makedeps libRcppClassic.a 
+	src/Makedeps libRcppClassic.a  \
+        vignettes/pinp.cls vignettes/jss.bst
 
 (cd vignettes; \
     rm -rf auto *.bbl *.xwm *.tex; \
