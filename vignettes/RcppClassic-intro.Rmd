@@ -37,6 +37,9 @@ keywords:
 # Customize footer, eg by referencing the vignette
 footer_contents: "RcppClassic Vignette"
 
+# Skip the final PNAS-style break
+skip_final_break: true
+
 # Our style
 output: pinp::pinp
 
@@ -47,7 +50,7 @@ header-includes:
 
 # Vignette
 vignette: >
-  %\VignetteIndexEntry{RcppClassic}
+  %\VignetteIndexEntry{RcppClassic: Deprecated Rcpp API}
   %\VignetteKeywords{R,Rcpp,API}
   %\VignettePackage{RcppClassic}
   %\VignetteEngine{knitr::rmarkdown}
