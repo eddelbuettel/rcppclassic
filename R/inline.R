@@ -1,12 +1,12 @@
 
-inlineCxxPlugin <- Rcpp:::Rcpp.plugin.maker( 
-    include.before = "#include <RcppClassic.h>", 
-    package = "RcppClassic", 
-    Makevars = NULL, 
-    Makevars.win = NULL, 
+inlineCxxPlugin <- Rcpp::Rcpp.plugin.maker(
+    include.before = "#include <RcppClassic.h>",
+    package = "RcppClassic",
+    Makevars = NULL,
+    Makevars.win = NULL,
     libs = RcppClassicLdFlags()
     )
-    
+
 RcppClassic.system.file <- function(...) {
     tools::file_path_as_absolute(base::system.file(..., package = "RcppClassic"))
 }
