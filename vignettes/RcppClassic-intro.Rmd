@@ -40,13 +40,12 @@ footer_contents: "RcppClassic Vignette"
 # Skip the final PNAS-style break
 skip_final_break: true
 
-# Our style
-output: pinp::pinp
-
-# Local additiona of a few definitions we use
-header-includes:
-  \newcommand{\proglang}[1]{\textsf{#1}}
-  \newcommand{\pkg}[1]{\textbf{#1}}
+# Produce a pinp document
+output:
+  pinp::pinp:
+    includes:
+      in_header: header.tex
+      after_body: bib.tex
 
 # Vignette
 vignette: >
@@ -55,47 +54,11 @@ vignette: >
   %\VignettePackage{RcppClassic}
   %\VignetteEngine{knitr::rmarkdown}
 
-# We include the generated .bbl file directly to not require a bib file
-include-after: |
-  \begin{thebibliography}{3}
-  \newcommand{\enquote}[1]{``#1''}
-  \providecommand{\natexlab}[1]{#1}
-  \providecommand{\url}[1]{\texttt{#1}}
-  \providecommand{\urlprefix}{URL }
-  \expandafter\ifx\csname urlstyle\endcsname\relax
-    \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
-    \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
-    \urlstyle{rm}\Url}\fi
-  \providecommand{\eprint}[2][]{\url{#2}}
-  
-  \bibitem[{Eddelbuettel(2013)}]{Eddelbuettel:2013:Rcpp}
-  Eddelbuettel D (2013).
-  \newblock \emph{Seamless R and C++ Integration with Rcpp}.
-  \newblock Use R! Springer, New York.
-  \newblock ISBN 978-1-4614-6867-7.
-  
-  \bibitem[{Eddelbuettel and Balamuta(2017)}]{PeerJ:Rcpp}
-  Eddelbuettel D, Balamuta JJ (2017).
-  \newblock \enquote{Extending R with C++: A Brief Introduction to Rcpp.}
-  \newblock \emph{PeerJ Preprints}, \textbf{5}.
-  \newblock \urlprefix\url{10.7287/peerj.preprints.3188v1/}.
-  
-  \bibitem[{Eddelbuettel \emph{et~al.}(2017)Eddelbuettel, Fran\c{c}ois, Allaire,
-    Ushey, Kou, Russel, Chambers, and Bates}]{CRAN:Rcpp}
-  Eddelbuettel D, Fran\c{c}ois R, Allaire J, Ushey K, Kou Q, Russel N, Chambers
-    J, Bates D (2017).
-  \newblock \emph{{Rcpp}: Seamless {R} and {C++} Integration}.
-  \newblock R package version 0.12.12,
-  \urlprefix\url{http://CRAN.R-Project.org/package=Rcpp}.
-
-  \end{thebibliography}
-
 ---
 
-\noindent This document presents the \pkg{RcppClassic} package. This
-package has been factored out of \pkg{Rcpp}
-\citep{CRAN:Rcpp,Eddelbuettel:2013:Rcpp,CRAN:Rcpp,PeerJ:Rcpp} and only
-contains code that is considered deprecated.
+\noindent This document presents the \pkg{RcppClassic} package. This package has been
+factored out of \pkg{Rcpp} \citep{CRAN:Rcpp,Eddelbuettel:2013:Rcpp,
+CRAN:Rcpp,PeerJ:Rcpp,TAS:Rcpp} and only contains code that is considered deprecated.
 
 This package is released for the sole purpose of allowing package authors
 that are still using the classic \pkg{Rcpp} API to keep
