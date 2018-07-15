@@ -1,8 +1,6 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
-//
 // RcppList.h: RcppClassic R/C++ interface class library -- 'list' type support
 //
-// Copyright (C) 2009 Dirk Eddelbuettel
+// Copyright (C) 2009 - 2018  Dirk Eddelbuettel
 //
 // This file is part of RcppClassic.
 //
@@ -31,14 +29,14 @@ public:
     RcppList(void);
     ~RcppList();
     void setSize(int size);
-    
+
     // defined later because it needs wrap
     template <typename T>
-    void append( const std::string& name, const T& value ) throw(std::range_error) ;
-    
+    void append( const std::string& name, const T& value );
+
     void clearProtectionStack();
     SEXP getList(void) const;
-    
+
 protected:
     friend class RcppResultSet;
 
@@ -49,9 +47,9 @@ private:
 };
 
 namespace Rcpp{
-	template<> inline SEXP wrap<RcppList>( const RcppList& x ){
-		return x.getList( ) ;	
-	}
+    template<> inline SEXP wrap<RcppList>( const RcppList& x ){
+        return x.getList( ) ;
+    }
 }
 
 #endif

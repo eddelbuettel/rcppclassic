@@ -1,10 +1,9 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
-//
 // RcppResultSet.h: RcppClassic R/C++ interface class library -- Results back to R
 //
-// Copyright (C) 2005 - 2006 Dominick Samperi
-// Copyright (C) 2008 - 2009 Dirk Eddelbuettel
-// Copyright (C) 2010	     Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2005 - 2006  Dominick Samperi
+// Copyright (C) 2008 - 2009  Dirk Eddelbuettel
+// Copyright (C) 2010         Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2011 - 2018  Dirk Eddelbuettel
 //
 // This file is part of RcppClassic.
 //
@@ -48,14 +47,14 @@ namespace Rcpp {
 
 class RcppResultSet {
 public:
-	typedef std::pair<const std::string,SEXP> PAIR ;
-	typedef std::list<PAIR> LIST ; 
-	
+    typedef std::pair<const std::string,SEXP> PAIR ;
+    typedef std::list<PAIR> LIST ;
+
     RcppResultSet();
-    
+
     template <typename T>
     void add(const std::string& name, const T& object){
-    	return add__impl( name, object ) ;
+        return add__impl( name, object ) ;
     }
 
     void add(const std::string&, double *, int);
@@ -65,31 +64,31 @@ public:
 
     void add(const std::string& name , const std::vector<std::vector<double> >& object) ;
     void add(const std::string& name , const std::vector<std::vector<int> >& object) ;
-    
+
     void add(const std::string& name, SEXP, bool ) ;
-    
+
     SEXP getReturnList();
     SEXP getSEXP();
 
 protected:
     int numProtected;
     LIST values;
-    
+
 private:
-	
-	inline void push_back( const std::string& name, SEXP x){
-		values.push_back( PAIR(name, PROTECT(x) ) ) ;
-		numProtected++ ;
-	}
-	
-	template <typename T> 
-	void add__impl( const std::string&, const T& ) ;
 
-	template <typename T> 
-	void add__matrix__std( const std::string& name, const std::vector<std::vector<T> >& mat ) throw(std::range_error) ;
+    inline void push_back( const std::string& name, SEXP x){
+        values.push_back( PAIR(name, PROTECT(x) ) ) ;
+        numProtected++ ;
+    }
 
-	template <typename T> 
-	void add__matrix( const std::string& name, T**, int, int ) ;
+    template <typename T>
+    void add__impl( const std::string&, const T& ) ;
+
+    template <typename T>
+    void add__matrix__std( const std::string& name, const std::vector<std::vector<T> >& mat );
+
+    template <typename T>
+    void add__matrix( const std::string& name, T**, int, int ) ;
 
 };
 
