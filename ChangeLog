@@ -1,3 +1,12 @@
+2018-07-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/classic/RcppList.h: Remove dynamic execution
+	specification which g++-7 and later complain about [CRAN request]
+	* inst/include/classic/RcppList__backward.h: Idem
+	* inst/include/classic/RcppResultSet.h: Idem
+	* inst/include/classic/RcppResultSet__backward.h: Idem
+	* .editorconfig.h: Added for more general whitespace specification
+
 2018-06-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.9.10

@@ -1,8 +1,6 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
+// RcppList__backward.h: RcppClassic R/C++ interface class library --
 //
-// RcppList__backward.h: RcppClassic R/C++ interface class library -- 
-//
-// Copyright (C) 2010	     Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2010 - 2018  Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppClassic.
 //
@@ -23,11 +21,11 @@
 #define RcppList__backward_h
 
 template <typename T>
-void RcppList::append( const std::string& name, const T& value ) throw(std::range_error) {
-	if (currListPosn < 0 || currListPosn >= listSize)
-	throw std::range_error("RcppList::append(): list posn out of range");
-	
-	SET_VECTOR_ELT(listArg, currListPosn++, Rcpp::wrap(value) );
+void RcppList::append( const std::string& name, const T& value ) {
+    if (currListPosn < 0 || currListPosn >= listSize)
+        throw std::range_error("RcppList::append(): list posn out of range");
+
+    SET_VECTOR_ELT(listArg, currListPosn++, Rcpp::wrap(value) );
     names.push_back(name);
 }
 
