@@ -5,7 +5,7 @@
 	* inst/include/classic/RcppList__backward.h: Idem
 	* inst/include/classic/RcppResultSet.h: Idem
 	* inst/include/classic/RcppResultSet__backward.h: Idem
-	* .editorconfig.h: Added for more general whitespace specification
+	* .editorconfig: Added for more general whitespace specification
 
 2018-06-10  Dirk Eddelbuettel  <edd@debian.org>
 
