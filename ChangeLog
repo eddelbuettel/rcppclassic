@@ -1,5 +1,7 @@
 2018-07-15  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.9.11
+
 	* inst/include/classic/RcppList.h: Remove dynamic execution
 	specification which g++-7 and later complain about [CRAN request]
 	* inst/include/classic/RcppList__backward.h: Idem
