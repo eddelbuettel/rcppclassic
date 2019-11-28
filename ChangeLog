@@ -1,7 +1,10 @@
 2019-11-27  Dirk Eddelbuettel  <edd@debian.org>
 
-	* DESCRIPTION (Suggests): Add tinytest
-	* .travis.yml (install): Add r-cran-tinytest
+	* DESCRIPTION (Suggests): Add tinytest, remove RUnit
+	* .travis.yml (install): Add r-cran-tinytest, remove r-cran-runit
+
+	* tests/tinytest.R: Added
+	* tests/doRUnit.R: Removed
 
 	* inst/tinytest/test_rcpp_date.R: Converted tests
 	* inst/tinytest/test_rcpp_matrix.R: Idem
@@ -12,6 +15,11 @@
 	* inst/tinytest/cpp/RcppMatrix.cpp: Idem
 	* inst/tinytest/cpp/RcppMisc.cpp: Idem
 	* inst/tinytest/cpp/RcppResultSet.cpp: Idem
+
+	* inst/unitTests/*: Removed
+
+	* vignettes/RcppClassic-unitTests.Rnw: Removed
+	* vignettes/unitTests/RcppClassic-unitTests.R: Idem
 
 2018-09-02  Dirk Eddelbuettel  <edd@debian.org>
 
