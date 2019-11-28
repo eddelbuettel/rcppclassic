@@ -1,4 +1,27 @@
 
+// Copyright (C) 2010 - 2019  Dirk Eddelbuettel and Romain Francois
+//
+// This file is part of RcppClassic.
+//
+// RcppClassic is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 2 of the License, or
+// (at your option) any later version.
+//
+// RcppClassic is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with RcppClassic.  If not, see <http://www.gnu.org/licenses/>.
+
+// NB Files updated in 2019 when switching to tinytest; usage of RcppClassic
+// is now more idiomatic Rcpp use given that Rcpp (and hence Rcpp Attribute)
+// are available.
+//
+// For more RcppClassic usage see e.g. the RcppClassicExamples packages.
+
 #include <RcppClassic.h>
 
 // [[Rcpp::depends(RcppClassic)]]
@@ -31,9 +54,9 @@ Rcpp::List RcppDate_operators() {
 }
 
 // [[Rcpp::export]]
-SEXP RcppDate_wrap() {
+RcppDate RcppDate_wrap() {
     RcppDate dt = RcppDate(12,31,1999);
-    return wrap(dt);
+    return dt;                  // wrap() implicit
 }
 
 // [[Rcpp::export]]
@@ -68,7 +91,7 @@ Rcpp::List RcppDatetime_operators() {
 }
 
 // [[Rcpp::export]]
-SEXP RcppDatetime_wrap() {
+RcppDatetime RcppDatetime_wrap() {
     RcppDatetime dt = RcppDatetime(981162123.123456);
-    return wrap(dt);
+    return dt;                  // wrap() implicit
 }

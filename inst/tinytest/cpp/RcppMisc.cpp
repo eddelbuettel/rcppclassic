@@ -1,4 +1,27 @@
 
+// Copyright (C) 2010 - 2019  Dirk Eddelbuettel and Romain Francois
+//
+// This file is part of RcppClassic.
+//
+// RcppClassic is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 2 of the License, or
+// (at your option) any later version.
+//
+// RcppClassic is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with RcppClassic.  If not, see <http://www.gnu.org/licenses/>.
+
+// NB Files updated in 2019 when switching to tinytest; usage of RcppClassic
+// is now more idiomatic Rcpp use given that Rcpp (and hence Rcpp Attribute)
+// are available.
+//
+// For more RcppClassic usage see e.g. the RcppClassicExamples packages.
+
 #include <RcppClassic.h>
 
 // [[Rcpp::depends(RcppClassic)]]
@@ -40,41 +63,41 @@ Rcpp::List RcppListFunc() {
 }
 
 // [[Rcpp::export]]
-SEXP RcppParams_Double(SEXP x) {
-    double y = 2 * RcppParams(x).getDoubleValue("val");
-    return Rcpp::wrap(y);
+double RcppParams_Double(RcppParams p) {
+    double y = 2 * p.getDoubleValue("val");
+    return y;
 }
 
 // [[Rcpp::export]]
-SEXP RcppParams_Int(SEXP x) {
-    int y = 2 * RcppParams(x).getIntValue("val");
-    return Rcpp::wrap(y);
+int RcppParams_Int(RcppParams p) {
+    int y = 2 * p.getIntValue("val");
+    return y;
 }
 
 // [[Rcpp::export]]
-SEXP RcppParams_String(SEXP x) {
-    std::string y = RcppParams(x).getStringValue("val");
+std::string RcppParams_String(RcppParams p) {
+    std::string y = p.getStringValue("val");
     y = y + y; // trivial string operation
-    return Rcpp::wrap(y);
+    return y;
 }
 
 // [[Rcpp::export]]
-SEXP RcppParams_Bool(SEXP x) {
-    bool y = RcppParams(x).getBoolValue("val");
-    return Rcpp::wrap(y);
+bool RcppParams_Bool(RcppParams p) {
+    bool y = p.getBoolValue("val");
+    return y;
 }
 
 // [[Rcpp::export]]
-SEXP RcppParams_Date(SEXP x) {
-    RcppDate y = RcppParams(x).getDateValue("val");
+Rcpp::List RcppParams_Date(RcppParams p) {
+    RcppDate y = p.getDateValue("val");
     RcppResultSet rs;
     rs.add("date", y);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-SEXP RcppParams_Datetime(SEXP x) {
-    RcppDatetime y = RcppParams(x).getDatetimeValue("val");
+Rcpp::List RcppParams_Datetime(RcppParams p) {
+    RcppDatetime y = p.getDatetimeValue("val");
     RcppResultSet rs;
     rs.add("datetime", y);
     return rs.getReturnList();

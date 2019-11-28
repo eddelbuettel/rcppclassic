@@ -131,7 +131,7 @@ expect_equal( fun(x)[[1]], x, info = "RcppResultSet.SEXP")
 
 #test.RObject.asStdVectorIntResultsSet <- function(){
 funx <- vector_int_rs
-expect_equal(funx(x=2:5), 2:5*2L, info = "as<std::vector<int> >(integer) via RcppResultSet")
-expect_equal(funx(x=2:5+.1), 2:5*2L, info = "as<std::vector<int> >(numeric) via RcppResultSet")
-expect_equal(funx(x=as.raw(2:5)), 2:5*2L, info = "as<std::vector<int> >(raw) via RcppResultSet")
+expect_equal(funx(2:5), 2:5*2L, info = "as<std::vector<int> >(integer) via RcppResultSet")
+expect_equal(funx(2:5+.1), 2:5*2L, info = "as<std::vector<int> >(numeric) via RcppResultSet")
+expect_equal(funx(as.raw(2:5)), 2:5*2L, info = "as<std::vector<int> >(raw) via RcppResultSet")
 expect_error(funx("foo"), info = "as<std::vector<int> >(character) -> exception")

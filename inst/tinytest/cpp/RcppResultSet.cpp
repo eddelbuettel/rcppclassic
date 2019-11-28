@@ -1,3 +1,27 @@
+
+// Copyright (C) 2010 - 2019  Dirk Eddelbuettel and Romain Francois
+//
+// This file is part of RcppClassic.
+//
+// RcppClassic is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 2 of the License, or
+// (at your option) any later version.
+//
+// RcppClassic is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with RcppClassic.  If not, see <http://www.gnu.org/licenses/>.
+
+// NB Files updated in 2019 when switching to tinytest; usage of RcppClassic
+// is now more idiomatic Rcpp use given that Rcpp (and hence Rcpp Attribute)
+// are available.
+//
+// For more RcppClassic usage see e.g. the RcppClassicExamples packages.
+
 #include <RcppClassic.h>
 
 // [[Rcpp::depends(RcppClassic)]]
@@ -81,24 +105,21 @@ Rcpp::List RcppDateVector_(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppDatetime_(SEXP x) {
-    RcppDatetime y(x);
+Rcpp::List RcppDatetime_(RcppDatetime y) {
     RcppResultSet rs;
     rs.add("foo", y);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppDatetimeVector_(SEXP x) {
-    RcppDatetimeVector y(x);
+Rcpp::List RcppDatetimeVector_(RcppDatetimeVector y) {
     RcppResultSet rs;
     rs.add("foo", y);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppStringVector_(SEXP x) {
-    RcppStringVector y(x);
+Rcpp::List RcppStringVector_(RcppStringVector y) {
     RcppResultSet rs;
     rs.add("foo", y);
     return rs.getReturnList();
@@ -167,40 +188,35 @@ Rcpp::List std_vector_std_vector_string() {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppVector_int(SEXP x) {
-    RcppVector<int> y(x);
+Rcpp::List RcppVector_int(RcppVector<int> y) {
     RcppResultSet rs;
     rs.add("foo", y);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppVector_double(SEXP x) {
-    RcppVector<double> y(x);
+Rcpp::List RcppVector_double(RcppVector<double> y) {
     RcppResultSet rs;
     rs.add("foo", y);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppMatrix_int(SEXP x) {
-    RcppMatrix<int> y(x);
+Rcpp::List RcppMatrix_int(RcppMatrix<int> y) {
     RcppResultSet rs;
     rs.add("foo", y);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppMatrix_double(SEXP x) {
-    RcppMatrix<double> y(x);
+Rcpp::List RcppMatrix_double(RcppMatrix<double> y) {
     RcppResultSet rs;
     rs.add("foo", y);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppFrame_(SEXP x) {
-    RcppFrame y(x);
+Rcpp::List RcppFrame_(RcppFrame y) {
     RcppResultSet rs;
     rs.add("", y);
     return rs.getReturnList();
@@ -214,8 +230,7 @@ Rcpp::List SEXP_(SEXP x) {
 }
 
 // [[Rcpp::export]]
-SEXP vector_int_rs(SEXP x) {
-    std::vector<int> iv = as<std::vector<int> >( x );
+SEXP vector_int_rs(std::vector<int> iv) {
     for (size_t i=0; i<iv.size(); i++) {
         iv[i] = 2*iv[i];
     }
