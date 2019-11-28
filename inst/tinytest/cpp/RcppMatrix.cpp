@@ -1,4 +1,27 @@
 
+// Copyright (C) 2010 - 2019  Dirk Eddelbuettel and Romain Francois
+//
+// This file is part of RcppClassic.
+//
+// RcppClassic is free software: you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 2 of the License, or
+// (at your option) any later version.
+//
+// RcppClassic is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with RcppClassic.  If not, see <http://www.gnu.org/licenses/>.
+
+// NB Files updated in 2019 when switching to tinytest; usage of RcppClassic
+// is now more idiomatic Rcpp use given that Rcpp (and hence Rcpp Attribute)
+// are available.
+//
+// For more RcppClassic usage see e.g. the RcppClassicExamples packages.
+
 #include <RcppClassic.h>
 
 // [[Rcpp::depends(RcppClassic)]]
@@ -6,8 +29,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-Rcpp::List RcppMatrix_int(SEXP x) {
-    RcppMatrix<int> m(x);
+Rcpp::List RcppMatrix_int(RcppMatrix<int> m) {
     RcppResultSet rs;
     rs.add("dim1",  m.getDim1());
     rs.add("dim2",  m.getDim2());
@@ -20,8 +42,7 @@ Rcpp::List RcppMatrix_int(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppMatrix_double(SEXP x) {
-    RcppMatrix<double> m(x);
+Rcpp::List RcppMatrix_double(RcppMatrix<double> m) {
     RcppResultSet rs;
     rs.add("dim1",  m.getDim1());
     rs.add("dim2",  m.getDim2());
@@ -34,8 +55,7 @@ Rcpp::List RcppMatrix_double(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppMatrix_double_na_nan(SEXP x) {
-    RcppMatrix<double> m(x);
+Rcpp::List RcppMatrix_double_na_nan(RcppMatrix<double> m) {
     RcppResultSet rs;
     rs.add("na_21",  R_IsNA(m(1,0)));
     rs.add("na_22",  R_IsNA(m(1,1)));
@@ -45,8 +65,7 @@ Rcpp::List RcppMatrix_double_na_nan(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppMatrixView_int(SEXP x) {
-    RcppMatrixView<int> m(x);
+Rcpp::List RcppMatrixView_int(RcppMatrixView<int> m) {
     RcppResultSet rs;
     rs.add("dim1",  m.dim1());
     rs.add("dim2",  m.dim2());
@@ -57,8 +76,7 @@ Rcpp::List RcppMatrixView_int(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppMatrixView_double(SEXP x) {
-    RcppMatrixView<double> m(x);
+Rcpp::List RcppMatrixView_double(RcppMatrixView<double> m) {
     RcppResultSet rs;
     rs.add("dim1",  m.dim1());
     rs.add("dim2",  m.dim2());
@@ -69,8 +87,7 @@ Rcpp::List RcppMatrixView_double(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppVector_int(SEXP x) {
-    RcppVector<int> m(x);
+Rcpp::List RcppVector_int(RcppVector<int> m) {
     RcppResultSet rs;
     rs.add("size",  m.size());
     rs.add("p2",    m(1));
@@ -80,8 +97,7 @@ Rcpp::List RcppVector_int(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppVector_double(SEXP x) {
-    RcppVector<double> m(x);
+Rcpp::List RcppVector_double(RcppVector<double> m) {
     RcppResultSet rs;
     rs.add("size", m.size());
     rs.add("p2",   m(1));
@@ -91,8 +107,7 @@ Rcpp::List RcppVector_double(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppVector_double_na_nan(SEXP x) {
-    RcppVector<double> m(x);
+Rcpp::List RcppVector_double_na_nan(RcppVector<double> m) {
     RcppResultSet rs;
     rs.add("na_2",  R_IsNA(m(1)));
     rs.add("na_3",  R_IsNA(m(2)));
@@ -102,8 +117,7 @@ Rcpp::List RcppVector_double_na_nan(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppVectorView_int(SEXP x) {
-    RcppVectorView<int> m(x);
+Rcpp::List RcppVectorView_int(RcppVectorView<int> m) {
     RcppResultSet rs;
     rs.add("size",  m.size());
     rs.add("p2",    m(1));
@@ -111,8 +125,7 @@ Rcpp::List RcppVectorView_int(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppVectorView_double(SEXP x) {
-    RcppVectorView<double> m(x);
+Rcpp::List RcppVectorView_double(RcppVectorView<double> m) {
     RcppResultSet rs;
     rs.add("size", m.size());
     rs.add("p2",   m(1));
@@ -120,27 +133,23 @@ Rcpp::List RcppVectorView_double(SEXP x) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List RcppStringVector_classic(SEXP x) {
-    RcppStringVector s = RcppStringVector(x);
+Rcpp::List RcppStringVector_classic(RcppStringVector s) {
     RcppResultSet rs;
     rs.add("string", s);
     return rs.getReturnList();
 }
 
 // [[Rcpp::export]]
-SEXP RcppStringVector_wrap(SEXP x) {
-    RcppStringVector s = RcppStringVector(x);
-    return wrap(s);
+RcppStringVector RcppStringVector_wrap(RcppStringVector s) {
+    return s;
 }
 
 // [[Rcpp::export]]
-SEXP RcppStringVector_begin(SEXP x) {
-    RcppStringVector s = RcppStringVector(x);
+RcppStringVector RcppStringVector_begin(RcppStringVector s) {
     return wrap(*s.begin());
 }
 
 // [[Rcpp::export]]
-SEXP RcppStringVector_end(SEXP x) {
-    RcppStringVector s = RcppStringVector(x);
+RcppStringVector RcppStringVector_end(RcppStringVector s) {
     return wrap(s(s.size()-1));
 }
