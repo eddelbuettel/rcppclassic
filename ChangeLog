@@ -6,10 +6,12 @@
 	* inst/tinytest/test_rcpp_date.R: Converted tests
 	* inst/tinytest/test_rcpp_matrix.R: Idem
 	* inst/tinytest/test_rcpp_misc.R: Idem
+	* inst/tinytest/test_rcpp_resultset.R: Idem
 
 	* inst/tinytest/cpp/RcppDate.cpp: Converted C++ parts
 	* inst/tinytest/cpp/RcppMatrix.cpp: Idem
 	* inst/tinytest/cpp/RcppMisc.cpp: Idem
+	* inst/tinytest/cpp/RcppResultSet.cpp: Idem
 
 2018-09-02  Dirk Eddelbuettel  <edd@debian.org>
 
