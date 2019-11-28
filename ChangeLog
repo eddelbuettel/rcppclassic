@@ -1,7 +1,10 @@
 2019-11-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/tinytest/test_rcpp_date.R: Converted tests
-	* inst/tinytest/cpp/RcppDate.cpp: New C++ parts
+	* inst/tinytest/test_rcpp_matrix.R: Idem
+
+	* inst/tinytest/cpp/RcppDate.cpp: Converted C++ parts
+	* inst/tinytest/cpp/RcppMatrix.cpp: Idem
 
 	* DESCRIPTION (Suggests): Add tinytest
 	* .travis.yml (install): Add r-cran-tinytest
