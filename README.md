@@ -1,4 +1,9 @@
-## RcppClassic [![Build Status](https://travis-ci.org/eddelbuettel/rcppclassic.png)](https://travis-ci.org/eddelbuettel/rcppclassic)
+## RcppClassic 
+
+[![Build Status](https://travis-ci.org/eddelbuettel/rcppclassic.png)](https://travis-ci.org/eddelbuettel/rcppclassic)
+[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN](https://www.r-pkg.org/badges/version/RcppClassic)](https://cran.r-project.org/package=RcppClassic)
+[![Dependencies](https://tinyverse.netlify.com/badge/RcppClassic)](https://cran.r-project.org/package=RcppClassic)
 
 The RcppClassic package provides a (now deprecated) C++ library which
 facilitates the integration of R and C++. 
