@@ -1,3 +1,8 @@
+2019-12-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/Makevars: Comment-out perfectly valid stripping instructions
+	which make the clang-using Fedora system at CRAN cry
+
 2019-11-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Added badges
