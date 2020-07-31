@@ -1,7 +1,7 @@
 Package: RcppClassic
 Title: Deprecated 'classic' 'Rcpp' 'API'
-Version: 0.9.11.1
-Date: 2019-11-27
+Version: 0.9.12
+Date: 2019-12-08
 Author: Dirk Eddelbuettel and Romain Francois, with contributions by David Reiss,
  and based on code written during 2005 and 2006 by Dominick Samperi
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
@@ -14,3 +14,4 @@ Suggests: tinytest
 LinkingTo: Rcpp
 License: GPL (>= 2)
 MailingList: Please send questions and comments about Rcpp to rcpp-devel@lists.r-forge.r-project.org
+BugReports: https://github.com/eddelbuettel/rcppclassic/issues
