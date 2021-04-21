@@ -14,4 +14,5 @@ Suggests: tinytest
 LinkingTo: Rcpp
 License: GPL (>= 2)
 MailingList: Please send questions and comments about Rcpp to rcpp-devel@lists.r-forge.r-project.org
+URL: https://github.com/eddelbuettel/rcppclassic, https://dirk.eddelbuettel.com/code/rcpp.classic.html
 BugReports: https://github.com/eddelbuettel/rcppclassic/issues
