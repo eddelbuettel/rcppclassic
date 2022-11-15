@@ -3,6 +3,8 @@
 	* src/Makevars ($(USERLIB)): Use relative file location in
 	install_name_tool call
 
+	* README.md: Update one URL
+
 2022-11-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3
