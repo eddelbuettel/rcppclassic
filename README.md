@@ -3,7 +3,7 @@
 [![CI](https://github.com/eddelbuettel/rcppclassic/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppclassic/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN](https://www.r-pkg.org/badges/version/RcppClassic)](https://cran.r-project.org/package=RcppClassic)
-[![Dependencies](https://tinyverse.netlify.com/badge/RcppClassic)](https://cran.r-project.org/package=RcppClassic)
+[![Dependencies](https://tinyverse.netlify.app/badge/RcppClassic)](https://cran.r-project.org/package=RcppClassic)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/rcppclassic)](https://github.com/eddelbuettel/rcppclassic)
 
 The RcppClassic package provides a (now deprecated) C++ library which
