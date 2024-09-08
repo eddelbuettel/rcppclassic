@@ -2,6 +2,12 @@ Package: RcppClassic
 Title: Deprecated 'classic' 'Rcpp' 'API'
 Version: 0.9.13
 Date: 2022-11-15
+Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
+                    comment = c(ORCID = "0000-0001-6419-907X")),
+             person("Romain", "Francois", role = "aut",
+                    comment = c(ORCID = "0000-0002-2444-4226")),
+             person("David", "Reiss", role = "ctb"),
+             person("Dominick", "Samperi", role = "aut", comment = "Initial code during 2005-2006"))
 Author: Dirk Eddelbuettel and Romain Francois, with contributions by David Reiss,
  and based on code written during 2005 and 2006 by Dominick Samperi
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
