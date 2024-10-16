@@ -8,9 +8,6 @@ Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd
                     comment = c(ORCID = "0000-0002-2444-4226")),
              person("David", "Reiss", role = "ctb"),
              person("Dominick", "Samperi", role = "aut", comment = "Initial code during 2005-2006"))
-Author: Dirk Eddelbuettel and Romain Francois, with contributions by David Reiss,
- and based on code written during 2005 and 2006 by Dominick Samperi
-Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: The 'RcppClassic' package provides a deprecated C++ library which
  facilitates the integration of R and C++. New projects should use the new 'Rcpp'
  'API' in the 'Rcpp' package.
