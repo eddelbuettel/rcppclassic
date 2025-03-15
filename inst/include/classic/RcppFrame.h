@@ -29,7 +29,8 @@
 
 enum ColType {			// Supported data frame column types.
     COLTYPE_DOUBLE, COLTYPE_INT, COLTYPE_STRING,
-    COLTYPE_FACTOR, COLTYPE_LOGICAL, 
+    //COLTYPE_FACTOR,
+    COLTYPE_LOGICAL,
     COLTYPE_DATE, COLTYPE_DATETIME,
     COLTYPE_UNKNOWN = -1
 };
@@ -47,18 +48,18 @@ public:
     void addRow(std::vector<ColDatum> rowData);
     int rows() const ;
     int cols() const ;
-    
-    // the template is never defined, but 
+
+    // the template is never defined, but
     // specializations are (in RcppFrame.cpp)
     template <int COLUMN_TYPE> SEXP getColumn( int col ) const ;
-    
+
 };
 
 class ColDatum {
 public:
-    ColDatum();  
-    ColDatum(const ColDatum& datum); 
-    ~ColDatum(); 
+    ColDatum();
+    ColDatum(const ColDatum& datum);
+    ~ColDatum();
 
     ColType getType() const { return type; }
     void setDoubleValue(double val);
@@ -67,7 +68,7 @@ public:
     void setStringValue(std::string val);
     void setDateValue(RcppDate date);
     void setDatetimeValue(RcppDatetime datetime);
-    void setFactorValue(std::string *names, int numNames, int factorLevel);
+    //void setFactorValue(std::string *names, int numNames, int factorLevel);
 
     double getDoubleValue() const ;
     int getIntValue() const ;
@@ -76,20 +77,20 @@ public:
     RcppDate getDateValue() const ;
     double getDateRCode() const ;
     RcppDatetime getDatetimeValue() const;
-    void checkFactorType() const ;
-    int getFactorNumLevels() const ;
-    int getFactorLevel() const;
-    std::string *getFactorLevelNames();
-    std::string getFactorLevelName();
-    
+    // void checkFactorType() const ;
+    // int getFactorNumLevels() const ;
+    // int getFactorLevel() const;
+    // std::string *getFactorLevelNames();
+    // std::string getFactorLevelName();
+
 private:
     ColType type;
     std::string s;
     double x;			// used for double and datetime
     int i; 			// used for int and logical
-    int level; 			// factor level
-    int numLevels; 		// number of levels for this factor
-    std::string *levelNames; 	// level name = levelNames[level-1]
+    //int level; 			// factor level
+    //int numLevels; 		// number of levels for this factor
+    //std::string *levelNames; 	// level name = levelNames[level-1]
     RcppDate d;
 };
 

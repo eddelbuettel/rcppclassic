@@ -1,3 +1,8 @@
+2025-03-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/classic/RcppFrame.h: Disable factor support
+	* src/RcppFrame.cpp: Idem
+
 2025-03-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Switch to r-ci with implicit bootstrap
