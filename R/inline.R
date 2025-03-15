@@ -23,12 +23,16 @@ RcppClassicLdPath <- function() {
 RcppClassicLdFlags <- function(static=staticLinking()) {
     rcppclassicdir <- RcppClassicLdPath()
     if (static) {                               # static is default on Windows and OS X
-        flags <- paste(rcppclassicdir, "/libRcppClassic.a", sep="")
+        if (.isMacOS()) {
+            flags <- file.path(rcppclassicdir, .getMachine(), "libRcppClassic.a")
+        } else {
+            flags <- file.path(rcppclassicdir, "libRcppClassic.a")
+        }
     } else {					# else for dynamic linking
-        flags <- paste("-L", rcppclassicdir, " -lRcppClassic", sep="") # baseline setting
+        flags <- paste0("-L", rcppclassicdir, " -lRcppClassic") # baseline setting
         if ((.Platform$OS.type == "unix") &&    # on Linux, we can use rpath to encode path
             (length(grep("^linux",R.version$os)))) {
-            flags <- paste(flags, " -Wl,-rpath,", rcppclassicdir, sep="")
+            flags <- paste0(flags, " -Wl,-rpath,", rcppclassicdir)
         }
     }
     invisible(flags)
@@ -42,3 +46,13 @@ staticLinking <- function() {
     ! grepl( "^linux", R.version$os )
 }
 
+.getMachine <- function() {
+    ## we use 'uname' as a crosscompilation may occur and the host system
+    ## given in `Sys.info()["machine"]` may not be the target platform
+    .machine <- system2("uname", "-m", stdout = TRUE)
+    .machine
+}
+
+.isMacOS <- function() {
+    Sys.info()[["sysnam"]] == "Darwin"
+}

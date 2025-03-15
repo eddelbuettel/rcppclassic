@@ -5,6 +5,12 @@
 
 	* .github/workflows/ci.yaml: Expand matrix to both macOS variants
 
+	* configure: Added
+	* tools/configure.R: Actual configuration worker
+	* src/Makevars.in: Generalized for configure
+	* R/inline.R: Reflect configuration
+	* cleanup: Extended
+
 2025-03-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Switch to r-ci with implicit bootstrap

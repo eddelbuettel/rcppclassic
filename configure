@@ -1,0 +1,7 @@
+#!/bin/sh
+
+## Portably set R_HOME allowing an override
+: "${R_HOME=`R RHOME`}"
+
+## Easier to deal with from R so farming out to an R script
+"${R_HOME}/bin/Rscript" tools/configure.R
