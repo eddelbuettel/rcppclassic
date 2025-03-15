@@ -3,6 +3,8 @@
 	* inst/include/classic/RcppFrame.h: Disable factor support
 	* src/RcppFrame.cpp: Idem
 
+	* .github/workflows/ci.yaml: Expand matrix to both macOS variants
+
 2025-03-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Switch to r-ci with implicit bootstrap
