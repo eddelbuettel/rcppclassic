@@ -54,5 +54,5 @@ staticLinking <- function() {
 }
 
 .isMacOS <- function() {
-    Sys.info()[["sysnam"]] == "Darwin"
+    Sys.info()[["sysname"]] == "Darwin"
 }
