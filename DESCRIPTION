@@ -1,7 +1,7 @@
 Package: RcppClassic
 Title: Deprecated 'classic' 'Rcpp' 'API'
-Version: 0.9.13
-Date: 2022-11-15
+Version: 0.9.13.1
+Date: 2025-03-15
 Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
                     comment = c(ORCID = "0000-0001-6419-907X")),
              person("Romain", "Francois", role = "aut",

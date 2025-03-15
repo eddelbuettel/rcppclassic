@@ -1,5 +1,7 @@
 2025-03-15  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll micro release and date
+
 	* inst/include/classic/RcppFrame.h: Disable factor support
 	* src/RcppFrame.cpp: Idem
 
