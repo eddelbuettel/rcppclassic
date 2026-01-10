@@ -14,15 +14,16 @@ jobs:
     strategy:
       matrix:
         include:
-          - {os: macos-latest}
-          - {os: macos-13}
-          - {os: ubuntu-latest}
+          #- {os: macos-latest}
+          #- {os: macos-13}
+          #- {os: ubuntu-latest}
+          - {os: ubuntu-slim}
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup
         uses: eddelbuettel/github-actions/r-ci@master
