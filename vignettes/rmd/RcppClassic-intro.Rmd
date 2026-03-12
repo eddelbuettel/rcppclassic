@@ -6,23 +6,23 @@ title: |
 author:
   - name: Dirk Eddelbuettel
     affiliation: a
-  - name: Romain Fran\c{c}ois
+  - name: Romain François
     affiliation: b
 address:
   - code: a
-    address: \url{http://dirk.eddelbuettel.com}
+    address: \url{https://dirk.eddelbuettel.com}
   - code: b
-    address: \url{https://romain.rbind.io/}
+    address: \url{https://github.com/romainfrancois}
 
 # For footer text
-lead_author_surname: Eddelbuettel and Fran\c{c}ois
+lead_author_surname: Eddelbuettel and François
 
 # Place DOI URL or CRAN Package URL here
 doi: "https://cran.r-project.org/package=RcppClassic"
 
 # Abstract
 abstract: |
-  This vignette describes how to use the \pkg{RcppClassic} package. It has 
+  This vignette describes how to use the \pkg{RcppClassic} package. It has
   long been deprecated and superceded by the more powerful \pkg{Rcpp} package.
   All new \proglang{R} packages should use the \pkg{Rcpp} package instead.
 
@@ -149,4 +149,3 @@ been removed from \pkg{Rcpp}.
 We do, however, recommend that package authors stop using the classic API.
 Iy has been more than superseded by the current \pkg{Rcpp} API in terms of
 performance, design, maintainance, and ease of use.
-
