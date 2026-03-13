@@ -4,3 +4,4 @@
 .*\.tar\.gz$
 \.editorconfig$
 ^\.github
+inst/examples
