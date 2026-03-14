@@ -5,3 +5,4 @@
 \.editorconfig$
 ^\.github
 inst/examples
+vignettes/rmd
