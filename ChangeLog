@@ -1,10 +1,14 @@
+2026-03-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.9.14
+
 2026-03-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/rmd/Makefile: Added
 	* vignettes/RcppClassic-intro.pdf: Compacted
 
 	* .Rbuildignore: No longer include RcppClassicExample as eponymous
-	example package at CRAN fulfils this purpose
+	example package at CRAN fulfills this purpose; exclude vignette source
 
 2026-03-12  Dirk Eddelbuettel  <edd@debian.org>
 
